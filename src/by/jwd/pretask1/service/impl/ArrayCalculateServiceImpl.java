@@ -40,7 +40,7 @@ public class ArrayCalculateServiceImpl implements ArrayCalculateService{
 			sum += i;
 		}
 		
-		double average = Math.round(sum / array.length);
+		double average = sum / array.length;
 		
 		return average;
 	}
