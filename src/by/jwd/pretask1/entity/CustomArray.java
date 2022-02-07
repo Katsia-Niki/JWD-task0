@@ -10,15 +10,15 @@ public class CustomArray {
 		
 	}
 
-	public CustomArray(int[] array) {
+	public CustomArray(int... array) {
 		this.array = array;
 	}
 
 	public int[] getArray() {
-		return array;
+		return array.clone();
 	}
 
-	public void setArray(int[] array) {
+	public void setArray(int... array) {
 		this.array = array;
 	}
 
