@@ -17,10 +17,11 @@ public class ArraySortingServiceImpl implements ArraySortingService{
 			for(int i = 1; i < array.length; i++) {
 				if (array[i] < array[i - 1]) {
 					swap(array, i, i - 1);
-					needIteration = false;
+					needIteration = true;
 				}
 			}
 		}
+		customArr.setArray(array);
 	}
 
 	@Override
@@ -37,6 +38,7 @@ public class ArraySortingServiceImpl implements ArraySortingService{
 			}
 			array[j] = current;
 		}
+		customArr.setArray(array);
 	}
 
 	@Override
@@ -44,6 +46,8 @@ public class ArraySortingServiceImpl implements ArraySortingService{
 		int[] array = customArr.getArray();
 		
 		arrayQuickSort(array, 0, array.length - 1);
+
+		customArr.setArray(array);
 	}
 	
 	private void swap (int[] array, int index1, int index2) {
