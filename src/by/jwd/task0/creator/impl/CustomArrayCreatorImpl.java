@@ -13,10 +13,10 @@ public class CustomArrayCreatorImpl implements CustomArrayCreator {
     }
 
     public CustomArray createFullCustomArray(int numberOfElements) {
-        int[] ints = new int[numberOfElements];
+        int[] arrayData = new int[numberOfElements];
         for (int i = 0; i < numberOfElements; i++) {
-            ints[i] = new Random().nextInt(100);
+            arrayData[i] = new Random().nextInt(100);
         }
-        return new CustomArray(ints);
+        return new CustomArray(arrayData);
     }
 }

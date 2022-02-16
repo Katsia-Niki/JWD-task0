@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class CustomRepository {
+public class  CustomRepository {
 
     private List<CustomArray> listOfArrays;
 

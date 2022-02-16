@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 
-public class CustomArray extends AbstractCustomArray implements CustomArrayObservable {
+public class CustomArray extends AbstractCustomArray {
 
 	static Logger logger = LogManager.getLogger();
 
@@ -64,31 +64,6 @@ public class CustomArray extends AbstractCustomArray implements CustomArrayObser
 	public void setArray(int... array) {
 		this.array = array;
 		notifyObservers();
-	}
-
-	@Override
-	public void attach(CustomArrayObserver observer) {
-		if (observer != null) {
-			arrayObserverList.add(observer);
-		}
-	}
-
-	@Override
-	public void detach(CustomArrayObserver observer) {
-		arrayObserverList.remove(observer);
-	}
-
-	@Override
-	public void notifyObservers() {
-		CustomArrayEvent event = new CustomArrayEvent(this);
-
-		for (CustomArrayObserver observer : arrayObserverList) {
-			observer.changeArray(event);
-		}
-
-		//or
-		//arrayObserverList.forEach(o -> o.changeArray(event));
-
 	}
 
 	@Override
