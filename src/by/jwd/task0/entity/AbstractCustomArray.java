@@ -18,6 +18,10 @@ public abstract class AbstractCustomArray implements CustomArrayObservable {
         this.customArrayId = CustomArrayCounter.generateCustomArrayId();
     }
 
+    public int getCustomArrayId() {
+        return customArrayId;
+    }
+
     @Override
     public void attach(CustomArrayObserver observer) {
         if (observer != null) {
@@ -37,23 +41,5 @@ public abstract class AbstractCustomArray implements CustomArrayObservable {
         for (CustomArrayObserver observer : arrayObserverList) {
             observer.changeArray(event);
         }
-
-        //or
-        //arrayObserverList.forEach(o -> o.changeArray(event));
-
     }
-
-    public int getCustomArrayId() {
-        return customArrayId;
-    }
-
-    public abstract int getSize();
-
-    public abstract int getElementAt(int index) throws CustomArrayException;
-
-    public abstract void setElementAt(int index, int element) throws CustomArrayException;
-
-    public abstract int[] getArray();
-
-    public abstract void setArray(int... data);
 }

@@ -5,5 +5,5 @@ import by.jwd.task0.entity.CustomArray;
 public interface CustomArrayCreator {
 
     CustomArray createCustomArray (int ... intArr);
-    CustomArray createFullCustomArray(int numberOfElements);
+    CustomArray createRandomCustomArray(int numberOfElements, int maxBound);
 }

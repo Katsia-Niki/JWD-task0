@@ -3,6 +3,7 @@ package by.jwd.task0.repository;
 import by.jwd.task0.entity.ArrayStatistics;
 import by.jwd.task0.entity.CustomArray;
 import by.jwd.task0.entity.Warehouse;
+import by.jwd.task0.exception.CustomArrayException;
 import by.jwd.task0.service.ArrayCalculateService;
 import by.jwd.task0.service.ArraySortingService;
 import by.jwd.task0.service.impl.ArrayCalculateServiceImpl;
@@ -14,7 +15,19 @@ import java.util.List;
 
 public class  CustomRepository {
 
-    private List<CustomArray> listOfArrays;
+    private final List<CustomArray> listOfArrays;
+    private static CustomRepository instance;
+
+    private CustomRepository() {
+        listOfArrays = new ArrayList<>();
+    }
+
+    public static CustomRepository getInstance() {
+        if (instance == null) {
+            instance = new CustomRepository();
+        }
+        return instance;
+    }
 
     public void add(int index, CustomArray element) {
         listOfArrays.add(index, element);
@@ -24,11 +37,11 @@ public class  CustomRepository {
         return listOfArrays.remove(index);
     }
 
-    public void addCustomArray(CustomArray customArray) {
+    public void add(CustomArray customArray) {
         listOfArrays.add(customArray);
     }
 
-    public void removeCustomArray(CustomArray customArray) {
+    public void remove(CustomArray customArray) {
         listOfArrays.remove(customArray);
     }
 
@@ -42,9 +55,6 @@ public class  CustomRepository {
 
     public List<CustomArray> getListOfArrays() { return listOfArrays;  }
 
-    public void setListOfArrays(List<CustomArray> listOfArrays) {
-        this.listOfArrays = listOfArrays;
-    }
 
 
     public void sort(Comparator<CustomArray> c) {
@@ -52,10 +62,11 @@ public class  CustomRepository {
     }
 
 
-    public List<CustomArray> query(Specification specification) {
+    public List<CustomArray> query(Specification specification) throws CustomArrayException {
+
         List<CustomArray> list = new ArrayList<>();
 
-        for (CustomArray array : list) {
+        for (CustomArray array : listOfArrays) {
             if (specification.specify(array)) {
                 list.add(array);
             }

@@ -12,10 +12,12 @@ public class CustomArrayCreatorImpl implements CustomArrayCreator {
         return new CustomArray(intArr);
     }
 
-    public CustomArray createFullCustomArray(int numberOfElements) {
+    @Override
+    public CustomArray createRandomCustomArray(int numberOfElements, int maxBound) {
         int[] arrayData = new int[numberOfElements];
+
         for (int i = 0; i < numberOfElements; i++) {
-            arrayData[i] = new Random().nextInt(100);
+            arrayData[i] = new Random().nextInt(maxBound);
         }
         return new CustomArray(arrayData);
     }

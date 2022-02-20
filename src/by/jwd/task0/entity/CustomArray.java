@@ -26,12 +26,12 @@ public class CustomArray extends AbstractCustomArray {
 		logger.log(Level.INFO, "Custom array was created");
 	}
 
-	@Override
+
 	public int getSize() {
-		return 0;
+		return array.length;
 	}
 
-	@Override
+
 	public int getElementAt(int index) throws CustomArrayException {
 		if (index >= this.getSize() && index < 0) {
 			logger.log(Level.ERROR, "Index out of bounds. Index: " + index);
@@ -41,7 +41,7 @@ public class CustomArray extends AbstractCustomArray {
 		return array[index];
 	}
 
-	@Override
+
 	public void setElementAt(int index, int element) throws CustomArrayException {
 
 		if (index >= this.getSize() && index < 0) {
@@ -54,13 +54,13 @@ public class CustomArray extends AbstractCustomArray {
 		logger.log(Level.INFO, "The element at the " + index + " has been changed to " + element);
 	}
 
-	@Override
+
 	public int[] getArray() {
 
 		return array.clone();
 	}
 
-	@Override
+
 	public void setArray(int... array) {
 		this.array = array;
 		notifyObservers();

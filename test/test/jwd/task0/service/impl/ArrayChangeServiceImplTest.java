@@ -23,7 +23,7 @@ public class ArrayChangeServiceImplTest {
         arrayChangeService = new ArrayChangeServiceImpl();
         CustomFileReader customFileReader = new CustomFileReaderImpl();
         StringToIntArrayParser stringToIntArrayParser = new StringToIntArrayParserImpl();
-        String dataFromFile = customFileReader.readFromFile("resources\\testData\\TestCustomArrayData.txt");
+        String dataFromFile = customFileReader.readOneLineFromFile("resources\\testData\\TestCustomArrayData.txt");
         int[] data = stringToIntArrayParser.parseCustomArray(dataFromFile);
         customArray = new CustomArray(data);
     }

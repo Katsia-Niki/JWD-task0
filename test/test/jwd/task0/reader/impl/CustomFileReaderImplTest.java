@@ -12,7 +12,7 @@ public class CustomFileReaderImplTest {
     @Test
     public void readFromFileTest() throws CustomArrayException {
         CustomFileReader customFileReader = new CustomFileReaderImpl();
-        String actual = customFileReader.readFromFile("resources\\testData\\TestCustomArrayData.txt");
+        String actual = customFileReader.readOneLineFromFile("resources\\testData\\TestCustomArrayData.txt");
         String expected = "7, -4, 5, 1, -7, ";
 
         assertEquals(actual, expected);
