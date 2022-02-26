@@ -6,6 +6,7 @@ import by.jwd.task0.repository.CustomRepository;
 import by.jwd.task0.repository.Specification;
 import by.jwd.task0.repository.impl.IdSpecification;
 import by.jwd.task0.repository.impl.MaxSpecification;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -15,7 +16,7 @@ import static org.testng.Assert.*;
 
 public class CustomRepositoryTest {
 
-    @BeforeTest
+    @BeforeClass
     public void setUp() {
 
         CustomArray array1 = new CustomArray(1, 2, 3, 4, 5);
@@ -59,10 +60,12 @@ public class CustomRepositoryTest {
 
         List<CustomArray> testList = repository.query(maxSpecification);
 
-        int actual = testList.size();
-        int expected = 1;
+        CustomArray actual = testList.get(0);
+        CustomArray expected = customArrayList.get(1);
 
         assertEquals(actual, expected);
     }
+
+
 
 }

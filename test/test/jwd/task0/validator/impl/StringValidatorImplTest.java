@@ -10,7 +10,7 @@ import static org.testng.Assert.*;
 
 public class StringValidatorImplTest {
 
-    StringValidator validator;
+    private StringValidator validator;
 
     @BeforeTest
     public void setUp() {

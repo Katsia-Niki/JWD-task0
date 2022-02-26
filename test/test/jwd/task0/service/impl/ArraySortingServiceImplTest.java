@@ -11,7 +11,7 @@ import static org.testng.Assert.*;
 
 public class ArraySortingServiceImplTest {
 
-    ArraySortingService arraySortingService;
+    private ArraySortingService arraySortingService;
 
     @BeforeTest
     public void setUp() {

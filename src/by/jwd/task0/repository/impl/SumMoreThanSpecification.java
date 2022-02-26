@@ -4,6 +4,8 @@ import by.jwd.task0.entity.CustomArray;
 import by.jwd.task0.entity.Warehouse;
 import by.jwd.task0.exception.CustomArrayException;
 import by.jwd.task0.repository.Specification;
+import by.jwd.task0.service.ArrayCalculateService;
+import by.jwd.task0.service.impl.ArrayCalculateServiceImpl;
 
 public class SumMoreThanSpecification implements Specification<CustomArray> {
 
@@ -18,9 +20,8 @@ public class SumMoreThanSpecification implements Specification<CustomArray> {
 
         int id = array.getCustomArrayId();
 
-        Warehouse warehouse = Warehouse.getInstance();
-        int arraySum = warehouse.get(id).getSum();
+        ArrayCalculateService service = new ArrayCalculateServiceImpl();
 
-        return arraySum > sum;
+        return service.calculateSum(array) > sum;
     }
 }

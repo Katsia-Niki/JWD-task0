@@ -1,5 +1,6 @@
 package by.jwd.task0.entity;
 
+import java.util.Objects;
 import java.util.StringJoiner;
 
 public class ArrayStatistics {
@@ -65,6 +66,19 @@ public class ArrayStatistics {
 
     public void setCountPositiveNumbers(int countPositiveNumbers) {
         this.countPositiveNumbers = countPositiveNumbers;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ArrayStatistics that = (ArrayStatistics) o;
+        return max == that.max && min == that.min && Double.compare(that.average, average) == 0 && sum == that.sum && countNegativeNumbers == that.countNegativeNumbers && countPositiveNumbers == that.countPositiveNumbers;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(max, min, average, sum, countNegativeNumbers, countPositiveNumbers);
     }
 
     @Override

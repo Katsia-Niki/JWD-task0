@@ -12,7 +12,7 @@ import static org.testng.Assert.*;
 
 public class ArrayCalculateServiceImplTest {
 
-    ArrayCalculateService arrayCalculateService;
+    private ArrayCalculateService arrayCalculateService;
 
     @BeforeTest
     public void setUp() {

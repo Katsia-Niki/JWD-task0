@@ -73,4 +73,11 @@ public class  CustomRepository {
         }
         return list;
     }
+
+    @Override
+    public String toString() {
+        return "CustomRepository{" +
+                "listOfArrays=" + listOfArrays +
+                '}';
+    }
 }

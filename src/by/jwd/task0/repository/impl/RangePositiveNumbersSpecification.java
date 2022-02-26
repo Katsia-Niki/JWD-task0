@@ -4,6 +4,8 @@ import by.jwd.task0.entity.CustomArray;
 import by.jwd.task0.entity.Warehouse;
 import by.jwd.task0.exception.CustomArrayException;
 import by.jwd.task0.repository.Specification;
+import by.jwd.task0.service.ArrayCalculateService;
+import by.jwd.task0.service.impl.ArrayCalculateServiceImpl;
 
 public class RangePositiveNumbersSpecification implements Specification<CustomArray> {
 
@@ -20,10 +22,10 @@ public class RangePositiveNumbersSpecification implements Specification<CustomAr
     public boolean specify(CustomArray array) throws CustomArrayException {
         int id = array.getCustomArrayId();
 
-        Warehouse warehouse = Warehouse.getInstance();
-        int arrayPositiveNumbers = warehouse.get(id).getCountPositiveNumbers();
+        ArrayCalculateService service = new ArrayCalculateServiceImpl();
+        int countPositive = service.countPositive(array);
 
-        boolean result = (minPositiveNumbers <= arrayPositiveNumbers && arrayPositiveNumbers <= maxPositiveNumbers);
+        boolean result = (minPositiveNumbers <= countPositive && countPositive <= maxPositiveNumbers);
         return result;
     }
 }

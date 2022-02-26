@@ -4,6 +4,8 @@ import by.jwd.task0.entity.CustomArray;
 import by.jwd.task0.entity.Warehouse;
 import by.jwd.task0.exception.CustomArrayException;
 import by.jwd.task0.repository.Specification;
+import by.jwd.task0.service.ArrayCalculateService;
+import by.jwd.task0.service.impl.ArrayCalculateServiceImpl;
 
 public class MaxSpecification implements Specification<CustomArray> {
 
@@ -17,9 +19,8 @@ public class MaxSpecification implements Specification<CustomArray> {
     public boolean specify(CustomArray array) throws CustomArrayException {
         int id = array.getCustomArrayId();
 
-        Warehouse warehouse = Warehouse.getInstance();
-        int arrayMax = warehouse.get(id).getMax();
+        ArrayCalculateService service = new ArrayCalculateServiceImpl();
 
-        return arrayMax >= max;
+        return service.findMax(array) >= max;
     }
 }

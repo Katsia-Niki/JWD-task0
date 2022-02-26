@@ -15,8 +15,8 @@ import static org.testng.Assert.*;
 
 public class ArrayChangeServiceImplTest {
 
-    ArrayChangeService arrayChangeService;
-    CustomArray customArray;
+    private ArrayChangeService arrayChangeService;
+    private CustomArray customArray;
 
     @BeforeTest
     public void setUp() throws CustomArrayException {

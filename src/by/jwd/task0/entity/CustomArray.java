@@ -88,6 +88,6 @@ public class CustomArray extends AbstractCustomArray {
 
 	@Override
 	public String toString() {
-		return "CustomArray: " + Arrays.toString(array);
+		return "CustomArray id: " + this.getCustomArrayId() + Arrays.toString(array);
 	}
 }

@@ -60,7 +60,7 @@ public class CustomFileReaderImpl implements CustomFileReader{
 	public List<String> readFromFile(String pathToFile) throws CustomArrayException {
 		StringValidator validator = StringValidatorImpl.getInstance();
 
-		List<String> listInts = new ArrayList<String>();
+		List<String> listInts = new ArrayList<>();
 
 		try(BufferedReader reader = new BufferedReader(new FileReader(pathToFile))) {
 

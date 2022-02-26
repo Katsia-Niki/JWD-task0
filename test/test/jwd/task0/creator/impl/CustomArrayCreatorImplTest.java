@@ -10,7 +10,7 @@ import static org.testng.Assert.*;
 
 public class CustomArrayCreatorImplTest {
 
-    CustomArrayCreator creator;
+    private CustomArrayCreator creator;
 
     @BeforeTest
     public void setUp() {
